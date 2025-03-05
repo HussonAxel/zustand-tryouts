@@ -1,9 +1,4 @@
-import useStore from "../zustand/store";
-
-function BearCounter() {
-  const bears = useStore((state) => state.bears);
-  return <h1>{bears} around here...</h1>;
-}
+import useStore from "../../../zustand/store";
 
 function IncreaseBearPopulation() {
   const increaseBearPopulation = useStore(
@@ -21,6 +16,17 @@ function ResetBearPopulation() {
   const resetBearPopulation = useStore((state) => state.resetBearPopulation);
   return <button onClick={resetBearPopulation}>reset all</button>;
 }
+
+function BearCounter() {
+  const bears = useStore((state) => state.bears);
+  console.log(bears);
+  return bears <= 0 ? (
+    <h1>There are no bears around here...</h1>
+  ) : (
+    <h1>{bears} around here...</h1>
+  );
+}
+
 
 export {
   BearCounter,
