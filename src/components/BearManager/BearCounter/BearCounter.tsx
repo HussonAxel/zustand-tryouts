@@ -1,20 +1,45 @@
 import useStore from "../../../zustand/store";
+import ToasterNotification from "../../toaster/toaster";
 
 function IncreaseBearPopulation() {
   const increaseBearPopulation = useStore(
     (state) => state.increaseBearPopulation
   );
-  return <button onClick={increaseBearPopulation}>one up</button>;
+  return (
+    <>
+      <ToasterNotification
+        toasterButtonName="Add a bear"
+        toastSentence="A bear has been added!"
+        action={increaseBearPopulation}
+      />
+    </>
+  );
 }
 
 function LowerBearPopulation() {
   const lowerBearPopulation = useStore((state) => state.lowerBearPopulation);
-  return <button onClick={lowerBearPopulation}> one down</button>;
+  return (
+    <>
+      <ToasterNotification
+        toasterButtonName="Remove a bear"
+        toastSentence="A bear has been removed!"
+        action={lowerBearPopulation}
+      />
+    </>
+  );
 }
 
 function ResetBearPopulation() {
   const resetBearPopulation = useStore((state) => state.resetBearPopulation);
-  return <button onClick={resetBearPopulation}>reset all</button>;
+  return (
+    <>
+      <ToasterNotification
+        toasterButtonName="Population has been reset"
+        toastSentence="The bear population has been reset!"
+        action={resetBearPopulation}
+      />
+    </>
+  );
 }
 
 function BearCounter() {
