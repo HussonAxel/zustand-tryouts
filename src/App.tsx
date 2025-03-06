@@ -1,6 +1,6 @@
-import "./App.css";
-
 import BearManager from "./components/BearManager/BearManger";
+
+import "./App.css";
 
 function App() {
 

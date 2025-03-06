@@ -22,8 +22,10 @@ function BearCounter() {
   console.log(bears);
   return bears <= 0 ? (
     <h1>There are no bears around here...</h1>
+  ) : bears > 1 ? (
+    <h1>{bears} bears around here...</h1>
   ) : (
-    <h1>{bears} around here...</h1>
+    <h1>Only {bears} bear around here...</h1>
   );
 }
 
