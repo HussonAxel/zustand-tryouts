@@ -1,10 +1,12 @@
 import { create } from "zustand";
+import { shared } from "use-broadcast-ts";
 import { persist, createJSONStorage } from 'zustand/middleware'
 import { BearState, BearActions, BearStatePopulation } from "./types/storeTypes";
 
 
 
 const useStore = create<BearStatePopulation>()(
+  shared(
   persist<BearState & BearActions>(  
     (set): BearState & BearActions => ({
       bears: 0,
@@ -16,7 +18,7 @@ const useStore = create<BearStatePopulation>()(
       name: 'bear-storage',
       storage: createJSONStorage(() => sessionStorage),
     },
-  ),
+  ))
 );
 
 export default useStore;
