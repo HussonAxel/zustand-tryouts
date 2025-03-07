@@ -1,9 +1,7 @@
-export const toasterStylesSucces = {
-  backgroundColor: "green",
-  color: "white",
+export const toasterStylesSuccess = {
+  className: "bg-green-500 text-white", // Using className instead of backgroundColor and color
 };
 
 export const toasterStylesFail = {
-  backgroundColor: "red",
-  color: "white",
+  className: "bg-red-500 text-white", // Using className instead of backgroundColor and color
 };
