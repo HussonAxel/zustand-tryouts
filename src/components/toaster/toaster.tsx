@@ -1,5 +1,7 @@
 import toast, { Toaster } from "react-hot-toast";
 import { ToasterNotificationTypes } from "./toaster.types";
+import useSound from "use-sound";
+import switchOn from "../../../src/assets/sounds/switch-on.mp3";
 
 export default function ToasterNotification({
   toasterButtonName,
@@ -14,7 +16,9 @@ export default function ToasterNotification({
   },
   toastIcon,
 }: ToasterNotificationTypes) {
+  const [play] = useSound(switchOn);
   const handleAction = () => {
+    play();
     action();
     toast(
       () => (
