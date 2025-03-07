@@ -1,9 +1,5 @@
 import useStore from "../../../zustand/store";
 import ToasterNotification from "../../toaster/toaster";
-import {
-  toasterStylesSuccess,
-  toasterStylesFail,
-} from "../../toaster/toasterStylingList";
 
 function IncreaseBearPopulation() {
   const increaseBearPopulation = useStore(
@@ -15,7 +11,13 @@ function IncreaseBearPopulation() {
         toasterButtonName="Add a bear"
         toastSentence="A bear has been added!"
         action={increaseBearPopulation}
-        toasterStyle={toasterStylesSuccess}
+        toastStyles={{
+          style: {
+            padding: "4px",
+            color: "#333",
+          },
+        }}
+        toastIcon="✅🐻"
       />
     </>
   );
@@ -29,7 +31,7 @@ function LowerBearPopulation() {
         toasterButtonName="Remove a bear"
         toastSentence="A bear has been removed!"
         action={lowerBearPopulation}
-        toasterStyle={toasterStylesFail}
+        toastIcon="❌🐻"
       />
     </>
   );
@@ -43,7 +45,6 @@ function ResetBearPopulation() {
         toasterButtonName="Population has been reset"
         toastSentence="The bear population has been reset!"
         action={resetBearPopulation}
-        toasterStyle={toasterStylesFail}
       />
     </>
   );
@@ -60,7 +61,6 @@ function BearCounter() {
     <h1>Only {bears} bear around here...</h1>
   );
 }
-
 
 export {
   BearCounter,

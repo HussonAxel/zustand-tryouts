@@ -1,16 +1,21 @@
-// This is the shape that notify expects
-export interface ToasterStyle {
-  className: string;
-}
-
 export interface NotifyTypes {
   toastSentence: string;
-  toasterStyle: ToasterStyle;
+}
+
+export interface ToastStyleTypes {
+  className?: string;
+  style?: {
+    border?: string;
+    padding?: string;
+    color?: string;
+    [key: string]: unknown;
+  };
 }
 
 export interface ToasterNotificationTypes {
   toasterButtonName: string;
   toastSentence: string;
-  toasterStyle: ToasterStyle;
   action(): void;
+  toastStyles?: ToastStyleTypes;
+  toastIcon?: string;
 }
