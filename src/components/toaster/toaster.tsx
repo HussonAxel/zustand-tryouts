@@ -3,17 +3,18 @@ import { toasterNotificationTypes } from "./toaster.types";
 
 
 
-const notify = ({toastSentence}: { toastSentence: string }) =>
+const notify = ({toastSentence, toasterStyle}: { toastSentence: string; toasterStyle?: object }) =>
   toast(toastSentence, {
     icon: "🐻",
+    style: {...toasterStyle},
   });
 
 
-export default function ToasterNotification({ toasterButtonName, toastSentence, action}: toasterNotificationTypes) {
+export default function ToasterNotification({ toasterButtonName, toastSentence, toasterStyle, action}: toasterNotificationTypes) {
 
   const handleAction = () => {
     action();
-    notify({toastSentence});
+    notify({ toastSentence, toasterStyle });
   };
   return (
     <div>
